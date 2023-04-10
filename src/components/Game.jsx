@@ -14,9 +14,9 @@ const Game = ({step, setStep, question, correct, setCorrect, questionQuantiti}) 
 
   const shuffledArr = shuffleArr(question.variants);
 
-  const handleClickVariant = (index) => {
+  const handleClickVariant = (variant) => {
     setStep(step + 1);
-    if (index === question.correct) setCorrect(correct + 1);
+    if (variant === question.correct) setCorrect(correct + 1);
   }
 
   return (
@@ -27,8 +27,8 @@ const Game = ({step, setStep, question, correct, setCorrect, questionQuantiti}) 
       <h1>{question.title}</h1>
       <ul>
         {
-          shuffledArr.map((variant, index) => (
-              <li onClick={() => handleClickVariant(index)} key={variant}>{variant}</li>
+          shuffledArr.map((variant) => (
+              <li onClick={() => handleClickVariant(variant)} key={variant}>{variant}</li>
             ))
         }
       </ul>
